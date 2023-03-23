@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Writeups on BlueSam1905</title>
+    <link>https://bluesam1905.github.io/writeups/</link>
+    <description>Recent content in Writeups on BlueSam1905</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 20 Mar 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://bluesam1905.github.io/writeups/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>wolvCTF Zombie 201</title>
+      <link>https://bluesam1905.github.io/writeups/wolctfzombie201/</link>
+      <pubDate>Mon, 20 Mar 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://bluesam1905.github.io/writeups/wolctfzombie201/</guid>
+      <description>Zombie 101 - Web As debug off and httponly on its gonna be hard. maybe?
+##IDEA
+Zombie last version is from 2018, maybe we will find some 0-day (1-day ofc if its the intended way) https://github.com/assaf/zombie/blob/master/CHANGELOG.md
+our version on the challenge is the last one, confirmed on package.json:
+{ &amp;#34;name&amp;#34;: &amp;#34;zombie&amp;#34;, &amp;#34;version&amp;#34;: &amp;#34;1.0.0&amp;#34;, &amp;#34;description&amp;#34;: &amp;#34;&amp;#34;, &amp;#34;main&amp;#34;: &amp;#34;index.js&amp;#34;, &amp;#34;author&amp;#34;: &amp;#34;&amp;#34;, &amp;#34;dependencies&amp;#34;: { &amp;#34;escape-html&amp;#34;: &amp;#34;^1.0.3&amp;#34;, &amp;#34;express&amp;#34;: &amp;#34;^4.18.2&amp;#34;, &amp;#34;zombie&amp;#34;: &amp;#34;^6.1.4&amp;#34; } } Start of our research On the zombie.</description>
+    </item>
+    
+    <item>
+      <title>wolvCTF Zombie 101</title>
+      <link>https://bluesam1905.github.io/writeups/wolvctfzombie101/</link>
+      <pubDate>Sun, 19 Mar 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://bluesam1905.github.io/writeups/wolvctfzombie101/</guid>
+      <description>Zombie 101 - Web Description Can you survive the Zombie gauntlet!?
+First in a sequence of four related challenges. Solving one will unlock the next one in the sequence.
+They all use the same source code but each one has a different configuration file.
+This first one is a garden variety “steal the admin’s cookie”.
+Good luck!
+Reflected XSS on : https://zombie-101-tlejfksioa-ul.a.run.app/zombie?show=xsshere
+Following vulnerable code :
+app.get(&amp;#39;/zombie&amp;#39;, function(req, res) { const show = req.</description>
+    </item>
+    
+    <item>
+      <title>THCon CTF 2021 Modern Webchat</title>
+      <link>https://bluesam1905.github.io/writeups/thconmodernwebchat/</link>
+      <pubDate>Sat, 12 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://bluesam1905.github.io/writeups/thconmodernwebchat/</guid>
+      <description>Modern Webchat Web (250 points/ 5 solves)
+Description IRC is a relic of the past.
+Solution We visit the website and we land on a web chat where we can choose a nickname and a color. We can login and then be able to send messages.
+From time to time we receive a message from the admin which says :
+`[admin] LePireBot: Message restricted to administrators.`Obviously we must fake the fact that we are admin in order to see the message.</description>
+    </item>
+    
+  </channel>
+</rss>
