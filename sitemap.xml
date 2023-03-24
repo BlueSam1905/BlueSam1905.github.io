@@ -26,8 +26,6 @@
     <loc>https://bluesam1905.github.io/writeups/thconmodernwebchat/</loc>
     <lastmod>2021-06-12T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://bluesam1905.github.io/articles/sam/</loc>
-  </url><url>
     <loc>https://bluesam1905.github.io/articles/</loc>
   </url><url>
     <loc>https://bluesam1905.github.io/categories/</loc>
@@ -37,5 +35,9 @@
     <loc>https://bluesam1905.github.io/projects/</loc>
   </url><url>
     <loc>https://bluesam1905.github.io/tags/</loc>
+  </url><url>
+    <loc>https://bluesam1905.github.io/articles/publicwifi/</loc>
+  </url><url>
+    <loc>https://bluesam1905.github.io/articles/opensource/</loc>
   </url>
 </urlset>

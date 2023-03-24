@@ -67,12 +67,23 @@ From time to time we receive a message from the admin which says :
     </item>
     
     <item>
-      <title>1st blog</title>
-      <link>https://bluesam1905.github.io/articles/sam/</link>
+      <title>The Dangers of Public WiFi- A Cyber Security Specialist&#39;s Perspective</title>
+      <link>https://bluesam1905.github.io/articles/publicwifi/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://bluesam1905.github.io/articles/sam/</guid>
-      <description>Not any useful blog yet </description>
+      <guid>https://bluesam1905.github.io/articles/publicwifi/</guid>
+      <description>Introduction Public WiFi is everywhere. Whether you&amp;rsquo;re at a coffee shop, airport, or hotel, it&amp;rsquo;s tempting to connect to free WiFi networks to save on data usage. However, as a cyber security specialist, I strongly advise against using public WiFi. In this blog post, I will explain why public WiFi is so dangerous and offer tips for staying safe online.
+Unencrypted Connections Public WiFi networks are often unencrypted, which means that anyone can intercept the data that you send and receive over the network.</description>
+    </item>
+    
+    <item>
+      <title>What is Open Source Software and Why Should You Care?</title>
+      <link>https://bluesam1905.github.io/articles/opensource/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://bluesam1905.github.io/articles/opensource/</guid>
+      <description>Introduction Open source software is a type of software that is freely available to anyone to use, modify, and distribute. In this blog post, we will explain what open source software is and why it&amp;rsquo;s important.
+Collaboration and Knowledge Sharing Open source software encourages collaboration among developers and promotes knowledge-sharing. By making the source code of the software accessible to everyone, developers can benefit from each other&amp;rsquo;s expertise and insights.</description>
     </item>
     
   </channel>
