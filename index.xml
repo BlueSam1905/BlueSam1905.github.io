@@ -30,11 +30,24 @@
       <pubDate>Mon, 20 Mar 2023 00:00:00 +0000</pubDate>
       
       <guid>https://bluesam1905.github.io/writeups/wolctfzombie201/</guid>
-      <description>Zombie 101 - Web As debug off and httponly on its gonna be hard. maybe?
+      <description>Zombie 201 - Web As debug off and httponly on its gonna be hard. maybe?
 ##IDEA
 Zombie last version is from 2018, maybe we will find some 0-day (1-day ofc if its the intended way) https://github.com/assaf/zombie/blob/master/CHANGELOG.md
 our version on the challenge is the last one, confirmed on package.json:
 { &amp;#34;name&amp;#34;: &amp;#34;zombie&amp;#34;, &amp;#34;version&amp;#34;: &amp;#34;1.0.0&amp;#34;, &amp;#34;description&amp;#34;: &amp;#34;&amp;#34;, &amp;#34;main&amp;#34;: &amp;#34;index.js&amp;#34;, &amp;#34;author&amp;#34;: &amp;#34;&amp;#34;, &amp;#34;dependencies&amp;#34;: { &amp;#34;escape-html&amp;#34;: &amp;#34;^1.0.3&amp;#34;, &amp;#34;express&amp;#34;: &amp;#34;^4.18.2&amp;#34;, &amp;#34;zombie&amp;#34;: &amp;#34;^6.1.4&amp;#34; } } Start of our research On the zombie.</description>
+    </item>
+    
+    <item>
+      <title>wolvCTF Zombie 201</title>
+      <link>https://bluesam1905.github.io/writeups/wolctfzombie301/</link>
+      <pubDate>Mon, 20 Mar 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://bluesam1905.github.io/writeups/wolctfzombie301/</guid>
+      <description>WolvCTF 2023 Zombie 301 401 March 20, 2023 Zombie 301 and 401 - Web
+As debug off and httponly on its gonna be hard. maybe? IDEA
+Zombie last version is from 2018, maybe we will find some 0-day (1-day ofc if its the intended way) https://github.com/assaf/zombie/blob/master/CHANGELOG.md
+our version on the challenge is the last one, confirmed on package.json:
+{ &amp;ldquo;name&amp;rdquo;: &amp;ldquo;zombie&amp;rdquo;, &amp;ldquo;version&amp;rdquo;: &amp;ldquo;1.0.0&amp;rdquo;, &amp;ldquo;description&amp;rdquo;: &amp;ldquo;&amp;rdquo;, &amp;ldquo;main&amp;rdquo;: &amp;ldquo;index.js&amp;rdquo;, &amp;ldquo;author&amp;rdquo;: &amp;ldquo;&amp;rdquo;, &amp;ldquo;dependencies&amp;rdquo;: { &amp;ldquo;escape-html&amp;rdquo;: &amp;ldquo;^1.</description>
     </item>
     
     <item>
@@ -72,8 +85,8 @@ From time to time we receive a message from the admin which says :
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://bluesam1905.github.io/articles/publicwifi/</guid>
-      <description>Introduction Public WiFi is everywhere. Whether you&amp;rsquo;re at a coffee shop, airport, or hotel, it&amp;rsquo;s tempting to connect to free WiFi networks to save on data usage. However, as a cyber security specialist, I strongly advise against using public WiFi. In this blog post, I will explain why public WiFi is so dangerous and offer tips for staying safe online.
-Unencrypted Connections Public WiFi networks are often unencrypted, which means that anyone can intercept the data that you send and receive over the network.</description>
+      <description>Initialization Everywhere offers free WiFi. It&amp;rsquo;s alluring to connect to free WiFi networks to reduce your data usage, whether you&amp;rsquo;re in a coffee shop, airport, or hotel. But as an expert in cyber security, I strongly advise against using open WiFi. This blog post will outline the dangers of using public WiFi and provide safety advice.
+Connections That Are Not Encrypted Since public WiFi networks frequently lack encryption, anyone can eavesdrop on the information you send and receive over the network.</description>
     </item>
     
     <item>
@@ -82,8 +95,8 @@ Unencrypted Connections Public WiFi networks are often unencrypted, which means 
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://bluesam1905.github.io/articles/opensource/</guid>
-      <description>Introduction Open source software is a type of software that is freely available to anyone to use, modify, and distribute. In this blog post, we will explain what open source software is and why it&amp;rsquo;s important.
-Collaboration and Knowledge Sharing Open source software encourages collaboration among developers and promotes knowledge-sharing. By making the source code of the software accessible to everyone, developers can benefit from each other&amp;rsquo;s expertise and insights.</description>
+      <description>Initialization Open source software is a category of software that is freely usable, modifiable, and distributable by anyone. We will define open source software and discuss its significance in this blog post.
+Teamwork and Knowledge Exchange Developer collaboration and knowledge sharing are encouraged by open source software. The software&amp;rsquo;s source code can be made available to everyone so that programmers can learn from one another&amp;rsquo;s experience and insights. Together, programmers can create software that is more dependable, secure, and stable.</description>
     </item>
     
   </channel>

